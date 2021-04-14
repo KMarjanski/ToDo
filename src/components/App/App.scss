@@ -1,0 +1,10 @@
+$BackgroundDark: hsl(235, 21%, 11%);
+
+body {
+  min-height: 100vh;
+  background-image: url("../../images/bg-desktop-dark.jpg");
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 37%;
+  background-position: left top, right top;
+  background-color: $BackgroundDark;
+}
