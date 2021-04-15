@@ -1,0 +1,60 @@
+@import "~bootstrap/scss/bootstrap";
+@import "../../utilities/variables.scss";
+
+.background {
+  background-color: $VeryDarkDesaturatedBlue !important;
+  border-radius: 10px !important;
+  padding: 10px 20px !important;
+  min-width: 40vw !important;
+}
+
+.checkbox-style {
+  border: solid 2px $DarkGrayishBlue;
+  border-radius: 50% !important;
+  min-width: 40px;
+  min-height: 42.5px;
+  &.unchecked {
+    border: solid 2px transparent;
+    background-image: linear-gradient(
+        $VeryDarkDesaturatedBlue,
+        $VeryDarkDesaturatedBlue
+      ),
+      linear-gradient($DarkGrayishBlue, $DarkGrayishBlue);
+
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    &:hover {
+      background-image: linear-gradient(
+          $VeryDarkDesaturatedBlue,
+          $VeryDarkDesaturatedBlue
+        ),
+        $CheckBackground;
+      transition: 1s;
+    }
+  }
+  &.checked {
+    border: none !important;
+    background-image: $CheckBackground !important;
+  }
+  &.focus {
+    box-shadow: none !important;
+  }
+  &:active {
+    border-color: $DarkGrayishBlue !important;
+  }
+  &:focus {
+    border-color: $DarkGrayishBlue !important;
+    box-shadow: none !important;
+  }
+}
+
+.form-input {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  font-size: 1.2rem !important;
+  color: $LightGrayishBlue !important;
+  &:focus {
+    box-shadow: none !important;
+  }
+}

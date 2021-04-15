@@ -1,4 +1,12 @@
-$BackgroundDark: hsl(235, 21%, 11%);
+@import "~bootstrap/scss/bootstrap";
+@import "../../utilities/variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-family: "Josefin Sans", sans-serif;
+}
 
 body {
   min-height: 100vh;
@@ -6,5 +14,17 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-size: 100% 37%;
   background-position: left top, right top;
-  background-color: $BackgroundDark;
+  background-color: $VeryDarkBlue;
+}
+
+.transparent {
+  background-color: transparent;
+}
+
+.vertical-center {
+  min-height: 100%; /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
 }
