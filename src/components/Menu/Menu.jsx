@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   Row,
   Col,
@@ -11,7 +11,14 @@ import "./Menu.scss";
 import { StoreContext } from "../../store/StoreProvider";
 
 const Menu = () => {
-  const { tasksToDo, optionMenu, setOptionMenu } = useContext(StoreContext);
+  const {
+    tasksToDo,
+    setTasksToDo,
+    optionMenu,
+    setOptionMenu,
+    displayTasks,
+    setDisplayTasks,
+  } = useContext(StoreContext);
 
   const tasksStillToDo = tasksToDo.filter((task) => (!task.done ? task : null));
 
@@ -23,12 +30,46 @@ const Menu = () => {
       : `No more items left`;
 
   const styleIfTaskArrayIsEmpty =
-    tasksToDo.length === 0
+    displayTasks.length === 0
       ? "background radius-end empty"
       : "background radius-end";
 
   const handleToggleMenu = (value) => {
     setOptionMenu(value);
+    const thisValue = value;
+    if (thisValue === 1) {
+      setDisplayTasks([...tasksToDo]);
+    } else if (thisValue === 2) {
+      setDisplayTasks(
+        [...tasksToDo].filter((task) => (!task.done ? task : null))
+      );
+    } else {
+      setDisplayTasks(
+        [...tasksToDo].filter((task) => (task.done ? task : null))
+      );
+    }
+  };
+
+  useEffect(() => {
+    if (optionMenu === 1) {
+      setDisplayTasks([...tasksToDo]);
+    } else if (optionMenu === 2) {
+      setDisplayTasks(
+        [...tasksToDo].filter((task) => (!task.done ? task : null))
+      );
+    } else {
+      setDisplayTasks(
+        [...tasksToDo].filter((task) => (task.done ? task : null))
+      );
+    }
+  }, [optionMenu, setDisplayTasks, tasksToDo]);
+
+  const handleClearCompleted = () => {
+    console.log("rere");
+    setTasksToDo([...tasksToDo].filter((task) => (!task.done ? task : null)));
+    setDisplayTasks(
+      [...tasksToDo].filter((task) => (!task.done ? task : null))
+    );
   };
 
   return (
@@ -58,7 +99,11 @@ const Menu = () => {
             </ToggleButtonGroup>
           </Col>
           <Col xs={6} lg={3} className="text-center p-1">
-            <Button size="sm" className="menu button p-0">
+            <Button
+              size="sm"
+              className="menu button p-0"
+              onClick={handleClearCompleted}
+            >
               Clear completed
             </Button>
           </Col>

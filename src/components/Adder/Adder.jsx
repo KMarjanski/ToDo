@@ -15,18 +15,24 @@ import { StoreContext } from "../../store/StoreProvider";
 const Adder = () => {
   const [placeholderValue, setPlaceholderValue] = useState("Type here...");
   const {
+    tasksToDo,
     isChecked,
     setIsChecked,
     newTask,
     setNewTask,
     setTasksToDo,
-    tasksToDo,
+    displayTasks,
+    setDisplayTasks,
   } = useContext(StoreContext);
 
   const handleAddTask = () => {
     setIsChecked(!isChecked);
     if (newTask !== "") {
       setTasksToDo([...tasksToDo, { task: newTask, id: uuid(), done: false }]);
+      setDisplayTasks([
+        ...displayTasks,
+        { task: newTask, id: uuid(), done: false },
+      ]);
       setNewTask("");
     } else {
       setPlaceholderValue("Write something!");

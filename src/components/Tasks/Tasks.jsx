@@ -13,11 +13,13 @@ import {
 } from "react-bootstrap";
 
 const Tasks = () => {
-  const { tasksToDo, setTasksToDo, optionMenu } = useContext(StoreContext);
+  const { tasksToDo, setTasksToDo, displayTasks, setDisplayTasks } = useContext(
+    StoreContext
+  );
 
-  const ShowTasks = tasksToDo.map((task) => {
+  const ShowTasks = displayTasks.map((task) => {
     const styleFirst =
-      tasksToDo[0].id === task.id
+      displayTasks[0].id === task.id
         ? "background m-0 radius first"
         : "background m-0 radius";
 
@@ -42,6 +44,17 @@ const Tasks = () => {
           } else return item;
         })
       );
+
+      setDisplayTasks(
+        [...displayTasks].map((item) => {
+          if (item.id === task.id) {
+            return {
+              ...item,
+              done: !item.done,
+            };
+          } else return item;
+        })
+      );
     };
 
     const handleTaskDelete = () => {
@@ -50,20 +63,15 @@ const Tasks = () => {
           return item.id !== task.id ? item : null;
         })
       );
-    };
-
-    const menuHelper = () => {
-      if (optionMenu === 1) {
-        return "justify-content-center";
-      } else if (optionMenu === 2 && task.done) {
-        return "d-none";
-      } else if (optionMenu === 3 && !task.done) {
-        return "d-none";
-      } else return "justify-content-center";
+      setDisplayTasks(
+        [...displayTasks].filter((item) => {
+          return item.id !== task.id ? item : null;
+        })
+      );
     };
 
     return (
-      <Row key={task.id} className={menuHelper()}>
+      <Row key={task.id} className="justify-content-center">
         <Jumbotron className={styleFirst}>
           <Row>
             <Col xs={2} className="align-self-center" align="center">
