@@ -6,6 +6,7 @@ import { Container, Jumbotron } from "react-bootstrap";
 import Header from "../Header/Header";
 import Adder from "../Adder/Adder";
 import Tasks from "../Tasks/Tasks";
+import Menu from "../Menu/Menu";
 
 import "./App.scss";
 import StoreProvider from "../../store/StoreProvider";
@@ -18,6 +19,7 @@ const App = () => {
           <Header />
           <Adder />
           <Tasks />
+          <Menu />
         </Container>
       </Jumbotron>
     </StoreProvider>

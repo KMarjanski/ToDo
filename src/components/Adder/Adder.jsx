@@ -42,6 +42,12 @@ const Adder = () => {
     setNewTask(e.target.value);
   };
 
+  const changeClassName = isChecked
+    ? "checkbox-style checked"
+    : "checkbox-style unchecked";
+
+  const showSVG = isChecked ? <img src={SVGS.Check} alt="Checkbox" /> : null;
+
   return (
     <Row className="justify-content-center">
       <Jumbotron className="background">
@@ -50,15 +56,11 @@ const Adder = () => {
             <ButtonGroup toggle>
               <ToggleButton
                 type="checkbox"
-                className={
-                  isChecked
-                    ? "checkbox-style checked"
-                    : "checkbox-style unchecked"
-                }
+                className={changeClassName}
                 checked={isChecked}
                 onChange={handleAddTask}
               >
-                {isChecked ? <img src={SVGS.Check} alt="Checkbox" /> : null}
+                {showSVG}
               </ToggleButton>
             </ButtonGroup>
           </Col>

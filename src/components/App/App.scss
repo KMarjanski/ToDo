@@ -12,13 +12,15 @@ body {
   min-height: 100vh;
   background-image: url("../../images/bg-desktop-dark.jpg");
   background-repeat: no-repeat, no-repeat;
-  background-size: 100% 37%;
+  background-size: 100% 20rem;
   background-position: left top, right top;
   background-color: $VeryDarkBlue;
+  color: $LightGrayishBlue;
 }
 
 .transparent {
   background-color: transparent;
+  margin-bottom: 0;
 }
 
 .vertical-center {

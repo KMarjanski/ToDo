@@ -1,0 +1,32 @@
+@import "../../utilities/variables.scss";
+
+.radius-end {
+  border-radius: 0 0 10px 10px !important;
+  width: 358px !important;
+  &.empty {
+    border-radius: 10px !important;
+  }
+}
+
+.menu {
+  color: $VeryDarkGrayishBlue !important;
+  background-color: transparent !important;
+  border: none !important;
+  font-size: 0.7rem !important;
+  cursor: default !important;
+  &.button {
+    cursor: pointer !important;
+    &:focus {
+      box-shadow: none !important;
+    }
+    &.focus {
+      box-shadow: none !important;
+    }
+    &.active {
+      color: $BrightBlue !important;
+    }
+    &:hover {
+      color: $LightGrayishBlueHover !important;
+    }
+  }
+}
