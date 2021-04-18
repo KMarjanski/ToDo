@@ -7,10 +7,11 @@ import mobileLight from "../images/bg-mobile-light.jpg";
 
 const GlobalStyle = createGlobalStyle`
 * {
+    position: relative;
     margin: 0;
     padding: 0;
     font-size: 18px;
-    font-family: "Josefin Sans", sans-serif;
+    font-family: "Josefin Sans", sans-serif !important;
   }
   
   body {
@@ -21,6 +22,10 @@ const GlobalStyle = createGlobalStyle`
       background-image: url(${(props) =>
         props.DarkMode ? mobileDark : mobileLight});
     }
+
+  #root {
+    min-height: 95vh;
+  }
 
     transition: background 0.5s;
     background-repeat: no-repeat, no-repeat;

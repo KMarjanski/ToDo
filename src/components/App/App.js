@@ -7,11 +7,13 @@ import { Wrapper } from "./style";
 
 import { StoreContext } from "../../store/StoreProvider";
 
+import GlobalStyle from "../../golbalStyles/globalStyles";
+
 import Adder from "../Adder/Adder";
+import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Menu from "../Menu/Menu";
 import Tasks from "../Tasks/Tasks";
-import GlobalStyle from "../../golbalStyles/globalStyles";
 
 const App = () => {
   const { isDarkModeOn } = useContext(StoreContext);
@@ -26,6 +28,7 @@ const App = () => {
           <Menu />
         </Container>
       </Wrapper>
+      <Footer />
     </>
   );
 };

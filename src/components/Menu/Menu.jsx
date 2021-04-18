@@ -71,7 +71,7 @@ const Menu = () => {
   };
 
   return (
-    <Row className="justify-content-center">
+    <Row className="justify-content-center mb-4">
       <Col xs={12} align="center">
         <Wrapper
           $isDarkModeOn={isDarkModeOn}

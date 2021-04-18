@@ -19,7 +19,7 @@ const Header = () => {
   );
 
   return (
-    <Row className="justify-content-center m-0 mt-5" style={{ width: "100vw" }}>
+    <Row className="justify-content-center m-0 mt-5">
       <Wrapper>
         <StyledRow className="justify-content-between mr-0">
           <Col xs={1} className=" align-self-center  " align="center">

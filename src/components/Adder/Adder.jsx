@@ -49,7 +49,7 @@ const Adder = () => {
   const showSVG = isChecked ? <img src={SVGS.Check} alt="Checkbox" /> : null;
 
   return (
-    <Row className="justify-content-center m-0" style={{ width: "100vw" }}>
+    <Row className="justify-content-center m-0">
       <Wrapper $isDarkModeOn={isDarkModeOn}>
         <Row>
           <Col xs={2} className="align-self-center" align="center">
