@@ -84,7 +84,6 @@ export const StyledFormInput = styled(Form.Control)`
   border: none !important;
   padding: 0 !important;
   font-size: 1.2rem !important;
-  cursor: pointer !important;
   color: ${(props) =>
     props.$isDarkModeOn
       ? variables.dark.DarkGrayishBlue
