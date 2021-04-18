@@ -71,7 +71,7 @@ const Menu = () => {
   };
 
   return (
-    <Row className="justify-content-center mb-4">
+    <Row className="justify-content-center mb-5">
       <Col xs={12} align="center">
         <Wrapper
           $isDarkModeOn={isDarkModeOn}
@@ -116,7 +116,10 @@ const Menu = () => {
         </Wrapper>
       </Col>
       <Col xs={12} align="center">
-        <MobileMenu className="d-block d-lg-none text-center pt-1 mb-2">
+        <MobileMenu
+          $isDarkModeOn={isDarkModeOn}
+          className="d-block d-lg-none text-center pt-1 mb-2"
+        >
           <ToggleButtonGroup
             type="radio"
             name="menu"
