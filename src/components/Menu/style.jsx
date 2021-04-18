@@ -77,3 +77,18 @@ export const StyledButton = styled(Button)`
         : variables.light.VeryDarkGrayishBlue} !important;
   }
 `;
+
+export const MobileMenu = styled(Jumbotron)`
+  background-color: ${(props) =>
+    props.$isDarkModeOn
+      ? variables.dark.VeryDarkDesaturatedBlue
+      : variables.light.VeryLightGray} !important;
+  transition: background 0.5s;
+  padding: 10px 20px !important;
+  min-width: 40vw !important;
+  border-radius: 10px !important;
+  width: 350px;
+  &.empty {
+    border-radius: 10px !important;
+  }
+`;
