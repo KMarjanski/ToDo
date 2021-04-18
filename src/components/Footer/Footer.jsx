@@ -1,11 +1,14 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React from "react";
+import React, { useContext } from "react";
+
+import { StoreContext } from "../../store/StoreProvider";
 
 import { StyledFooter } from "./style";
 
 const Footer = () => {
+  const { isDarkModeOn } = useContext(StoreContext);
   return (
-    <StyledFooter>
+    <StyledFooter $isDarkModeOn={isDarkModeOn}>
       Challenge by{" "}
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
         Frontend Mentor
