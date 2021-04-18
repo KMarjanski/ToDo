@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.js": "/ToDo/static/js/main.292fb628.chunk.js",
-    "main.js.map": "/ToDo/static/js/main.292fb628.chunk.js.map",
-    "runtime-main.js": "/ToDo/static/js/runtime-main.ca36225b.js",
-    "runtime-main.js.map": "/ToDo/static/js/runtime-main.ca36225b.js.map",
-    "static/css/2.4c97ca4f.chunk.css": "/ToDo/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.6aa18019.chunk.js": "/ToDo/static/js/2.6aa18019.chunk.js",
-    "static/js/2.6aa18019.chunk.js.map": "/ToDo/static/js/2.6aa18019.chunk.js.map",
-    "index.html": "/ToDo/index.html",
-    "static/css/2.4c97ca4f.chunk.css.map": "/ToDo/static/css/2.4c97ca4f.chunk.css.map",
-    "static/js/2.6aa18019.chunk.js.LICENSE.txt": "/ToDo/static/js/2.6aa18019.chunk.js.LICENSE.txt",
-    "static/media/bg-desktop-dark.73e47dbb.jpg": "/ToDo/static/media/bg-desktop-dark.73e47dbb.jpg",
-    "static/media/bg-desktop-light.3508d620.jpg": "/ToDo/static/media/bg-desktop-light.3508d620.jpg",
-    "static/media/icon-check.a8fb15d0.svg": "/ToDo/static/media/icon-check.a8fb15d0.svg",
-    "static/media/icon-cross.6ee81d30.svg": "/ToDo/static/media/icon-cross.6ee81d30.svg",
-    "static/media/icon-moon.6c03114b.svg": "/ToDo/static/media/icon-moon.6c03114b.svg",
-    "static/media/icon-sun.910b1f9a.svg": "/ToDo/static/media/icon-sun.910b1f9a.svg"
+    "main.js": "/ToDo-App/static/js/main.292fb628.chunk.js",
+    "main.js.map": "/ToDo-App/static/js/main.292fb628.chunk.js.map",
+    "runtime-main.js": "/ToDo-App/static/js/runtime-main.6b9234bc.js",
+    "runtime-main.js.map": "/ToDo-App/static/js/runtime-main.6b9234bc.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/ToDo-App/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.573db36a.chunk.js": "/ToDo-App/static/js/2.573db36a.chunk.js",
+    "static/js/2.573db36a.chunk.js.map": "/ToDo-App/static/js/2.573db36a.chunk.js.map",
+    "index.html": "/ToDo-App/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/ToDo-App/static/css/2.4c97ca4f.chunk.css.map",
+    "static/js/2.573db36a.chunk.js.LICENSE.txt": "/ToDo-App/static/js/2.573db36a.chunk.js.LICENSE.txt",
+    "static/media/bg-desktop-dark.73e47dbb.jpg": "/ToDo-App/static/media/bg-desktop-dark.73e47dbb.jpg",
+    "static/media/bg-desktop-light.3508d620.jpg": "/ToDo-App/static/media/bg-desktop-light.3508d620.jpg",
+    "static/media/icon-check.a8fb15d0.svg": "/ToDo-App/static/media/icon-check.a8fb15d0.svg",
+    "static/media/icon-cross.6ee81d30.svg": "/ToDo-App/static/media/icon-cross.6ee81d30.svg",
+    "static/media/icon-moon.6c03114b.svg": "/ToDo-App/static/media/icon-moon.6c03114b.svg",
+    "static/media/icon-sun.910b1f9a.svg": "/ToDo-App/static/media/icon-sun.910b1f9a.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ca36225b.js",
+    "static/js/runtime-main.6b9234bc.js",
     "static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.6aa18019.chunk.js",
+    "static/js/2.573db36a.chunk.js",
     "static/js/main.292fb628.chunk.js"
   ]
 }
