@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { v4 as uuid } from "uuid";
 import SVGS from "../../images/PackSvgs";
-import { Col, Row, ButtonGroup } from "react-bootstrap";
+import { Col, Form, Row, ButtonGroup } from "react-bootstrap";
 import { StyledFormInput, StyledToggleButton, Wrapper } from "./style";
 import { StoreContext } from "../../store/StoreProvider";
 
@@ -21,7 +21,8 @@ const Adder = () => {
     setTasksToDo,
   } = useContext(StoreContext);
 
-  const handleAddTask = () => {
+  const handleAddTask = (e) => {
+    e.preventDefault();
     setIsChecked(!isChecked);
     if (newTask !== "") {
       setTasksToDo([...tasksToDo, { task: newTask, id: uuid(), done: false }]);
@@ -66,12 +67,14 @@ const Adder = () => {
             </ButtonGroup>
           </Col>
           <Col xs={10}>
-            <StyledFormInput
-              $isDarkModeOn={isDarkModeOn}
-              placeholder={placeholderValue}
-              value={newTask}
-              onChange={handleOnChange}
-            />
+            <Form onSubmit={handleAddTask}>
+              <StyledFormInput
+                $isDarkModeOn={isDarkModeOn}
+                placeholder={placeholderValue}
+                value={newTask}
+                onChange={handleOnChange}
+              />
+            </Form>
           </Col>
         </Row>
       </Wrapper>
