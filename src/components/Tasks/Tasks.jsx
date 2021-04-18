@@ -1,37 +1,34 @@
 import React, { useContext } from "react";
-import "./Tasks.scss";
 import SVGS from "../../images/PackSvgs";
 import { StoreContext } from "../../store/StoreProvider";
+import { Row, Col, ButtonGroup } from "react-bootstrap";
 import {
-  Row,
-  Jumbotron,
-  Col,
-  Button,
-  ButtonGroup,
-  ToggleButton,
-  Form,
-} from "react-bootstrap";
+  StyledCloseButton,
+  StyledFormInput,
+  StyledToggleButton,
+  Wrapper,
+  XButtonColumn,
+} from "./style";
 
 const Tasks = () => {
-  const { tasksToDo, setTasksToDo, displayTasks, setDisplayTasks } = useContext(
-    StoreContext
-  );
+  const {
+    isDarkModeOn,
+    tasksToDo,
+    setTasksToDo,
+    displayTasks,
+    setDisplayTasks,
+  } = useContext(StoreContext);
 
   const ShowTasks = displayTasks.map((task) => {
-    const styleFirst =
-      displayTasks[0].id === task.id
-        ? "background m-0 radius first"
-        : "background m-0 radius";
+    const styleFirst = displayTasks[0].id === task.id ? "m-0 first" : "m-0";
 
-    const styleCheckbox = task.done
-      ? "checkbox-style checked"
-      : "checkbox-style unchecked";
+    const styleCheckbox = task.done ? "checked" : "unchecked";
 
     const showCheckboxIcon = task.done ? (
       <img src={SVGS.Check} alt="Checkbox" />
     ) : null;
 
-    const styleDoneTask = task.done ? "form-input line-through" : "form-input";
+    const styleDoneTask = task.done ? "line-through" : "";
 
     const handleTaskDone = () => {
       setTasksToDo(
@@ -72,34 +69,38 @@ const Tasks = () => {
 
     return (
       <Row key={task.id} className="justify-content-center">
-        <Jumbotron className={styleFirst}>
+        <Wrapper $isDarkModeOn={isDarkModeOn} className={styleFirst}>
           <Row>
             <Col xs={2} className="align-self-center" align="center">
               <ButtonGroup toggle>
-                <ToggleButton
+                <StyledToggleButton
+                  $isDarkModeOn={isDarkModeOn}
                   type="checkbox"
                   className={styleCheckbox}
                   checked={task.done}
                   onChange={handleTaskDone}
                 >
                   {showCheckboxIcon}
-                </ToggleButton>
+                </StyledToggleButton>
               </ButtonGroup>
             </Col>
             <Col xs={9}>
-              <Form.Control
-                className={styleDoneTask}
-                value={task.task}
-                disabled
-              />
+              <div>
+                <StyledFormInput
+                  $isDarkModeOn={isDarkModeOn}
+                  className={styleDoneTask}
+                  value={task.task}
+                  disabled
+                />
+              </div>
             </Col>
-            <Col xs={1} className="close-button-column">
-              <Button className="p-0 close-button" onClick={handleTaskDelete}>
+            <XButtonColumn xs={1}>
+              <StyledCloseButton className="p-0" onClick={handleTaskDelete}>
                 <img src={SVGS.Cross} alt="X" />
-              </Button>
-            </Col>
+              </StyledCloseButton>
+            </XButtonColumn>
           </Row>
-        </Jumbotron>
+        </Wrapper>
       </Row>
     );
   });

@@ -1,17 +1,16 @@
 import React, { useContext, useEffect } from "react";
+import { Row, Col, ToggleButtonGroup } from "react-bootstrap";
 import {
-  Row,
-  Col,
-  Jumbotron,
-  ToggleButtonGroup,
-  Button,
-  ToggleButton,
-} from "react-bootstrap";
-import "./Menu.scss";
+  StyledButton,
+  StyledParagraph,
+  StyledToggleButton,
+  Wrapper,
+} from "./style";
 import { StoreContext } from "../../store/StoreProvider";
 
 const Menu = () => {
   const {
+    isDarkModeOn,
     tasksToDo,
     setTasksToDo,
     optionMenu,
@@ -29,10 +28,7 @@ const Menu = () => {
       ? `${tasksStillToDo.length} item left`
       : `No more items left`;
 
-  const styleIfTaskArrayIsEmpty =
-    displayTasks.length === 0
-      ? "background radius-end empty"
-      : "background radius-end";
+  const styleIfTaskArrayIsEmpty = displayTasks.length === 0 ? "empty" : "";
 
   const handleToggleMenu = (value) => {
     setOptionMenu(value);
@@ -74,10 +70,12 @@ const Menu = () => {
 
   return (
     <Row className="justify-content-center">
-      <Jumbotron className={styleIfTaskArrayIsEmpty}>
+      <Wrapper $isDarkModeOn={isDarkModeOn} className={styleIfTaskArrayIsEmpty}>
         <Row className="justify-content-between">
           <Col xs={6} lg={3} className="pt-2">
-            <p className="menu p-0 m-0">{showTasksLeft}</p>
+            <StyledParagraph $isDarkModeOn={isDarkModeOn} className="p-0 m-0">
+              {showTasksLeft}
+            </StyledParagraph>
           </Col>
           <Col lg={6} className="d-none d-lg-block text-center pt-1">
             <ToggleButtonGroup
@@ -87,28 +85,29 @@ const Menu = () => {
               onChange={handleToggleMenu}
               size="sm"
             >
-              <ToggleButton value={1} className="menu button">
+              <StyledToggleButton $isDarkModeOn={isDarkModeOn} value={1}>
                 All
-              </ToggleButton>
-              <ToggleButton value={2} className="menu button">
+              </StyledToggleButton>
+              <StyledToggleButton $isDarkModeOn={isDarkModeOn} value={2}>
                 Active
-              </ToggleButton>
-              <ToggleButton value={3} className="menu button">
+              </StyledToggleButton>
+              <StyledToggleButton $isDarkModeOn={isDarkModeOn} value={3}>
                 Completed
-              </ToggleButton>
+              </StyledToggleButton>
             </ToggleButtonGroup>
           </Col>
           <Col xs={6} lg={3} className="text-center p-1">
-            <Button
+            <StyledButton
+              $isDarkModeOn={isDarkModeOn}
               size="sm"
-              className="menu button p-0"
+              className="p-0"
               onClick={handleClearCompleted}
             >
               Clear completed
-            </Button>
+            </StyledButton>
           </Col>
         </Row>
-      </Jumbotron>
+      </Wrapper>
     </Row>
   );
 };

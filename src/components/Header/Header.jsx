@@ -1,24 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import SVGS from "../../images/PackSvgs";
-import { Button, Col, Jumbotron, Row } from "react-bootstrap";
-import "./Header.scss";
+import { Col, Row } from "react-bootstrap";
+import { Wrapper, StyledRow, Title, ThemeSwitchButton } from "./style";
+import { StoreContext } from "../../store/StoreProvider";
 
 const Header = () => {
+  const { isDarkModeOn, setIsDarkModeOn } = useContext(StoreContext);
+
+  const handleThemeSwitch = () => {
+    setIsDarkModeOn(!isDarkModeOn);
+  };
+
+  const changeIcon = isDarkModeOn ? (
+    <img src={SVGS.Sun} alt="Sun icon" />
+  ) : (
+    <img src={SVGS.Moon} alt="Moon icon" />
+  );
+
   return (
-    <Row className="justify-content-center">
-      <Jumbotron className="background-transparent">
-        <Row className="justify-content-between mr-0 min-width">
+    <Row className="justify-content-center m-0 mt-5" style={{ width: "100vw" }}>
+      <Wrapper>
+        <StyledRow className="justify-content-between mr-0">
           <Col xs={1} className=" align-self-center  " align="center">
-            <h1>TODO</h1>
+            <Title>TODO</Title>
           </Col>
           <Col xs={1} className="mb-2">
-            <Button id="theme-switch" className="p-0">
-              <img src={SVGS.Sun} alt="Sun icon" />
-            </Button>
+            <ThemeSwitchButton className="p-0" onClick={handleThemeSwitch}>
+              {changeIcon}
+            </ThemeSwitchButton>
           </Col>
-        </Row>
-      </Jumbotron>
+        </StyledRow>
+      </Wrapper>
     </Row>
   );
 };

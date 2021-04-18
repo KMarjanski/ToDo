@@ -1,28 +1,24 @@
 import React, { useContext, useState } from "react";
 import { v4 as uuid } from "uuid";
-import "./Adder.scss";
 import SVGS from "../../images/PackSvgs";
-import {
-  Col,
-  Form,
-  Row,
-  ToggleButton,
-  ButtonGroup,
-  Jumbotron,
-} from "react-bootstrap";
+import { Col, Row, ButtonGroup } from "react-bootstrap";
+import { StyledFormInput, StyledToggleButton, Wrapper } from "./style";
 import { StoreContext } from "../../store/StoreProvider";
 
 const Adder = () => {
-  const [placeholderValue, setPlaceholderValue] = useState("Type here...");
+  const [placeholderValue, setPlaceholderValue] = useState(
+    "Create a new todo..."
+  );
   const {
-    tasksToDo,
-    isChecked,
-    setIsChecked,
-    newTask,
-    setNewTask,
-    setTasksToDo,
     displayTasks,
     setDisplayTasks,
+    isChecked,
+    setIsChecked,
+    isDarkModeOn,
+    newTask,
+    setNewTask,
+    tasksToDo,
+    setTasksToDo,
   } = useContext(StoreContext);
 
   const handleAddTask = () => {
@@ -39,7 +35,7 @@ const Adder = () => {
     }
     setTimeout(() => {
       setIsChecked((prev) => !prev);
-      setPlaceholderValue("Type here...");
+      setPlaceholderValue("Create a new todo...");
     }, [500]);
   };
 
@@ -48,38 +44,37 @@ const Adder = () => {
     setNewTask(e.target.value);
   };
 
-  const changeClassName = isChecked
-    ? "checkbox-style checked"
-    : "checkbox-style unchecked";
+  const changeClassName = isChecked ? "checked" : "unchecked";
 
   const showSVG = isChecked ? <img src={SVGS.Check} alt="Checkbox" /> : null;
 
   return (
-    <Row className="justify-content-center">
-      <Jumbotron className="background">
+    <Row className="justify-content-center m-0" style={{ width: "100vw" }}>
+      <Wrapper $isDarkModeOn={isDarkModeOn}>
         <Row>
-          <Col xs={2} className=" align-self-center  " align="center">
+          <Col xs={2} className="align-self-center" align="center">
             <ButtonGroup toggle>
-              <ToggleButton
+              <StyledToggleButton
+                $isDarkModeOn={isDarkModeOn}
                 type="checkbox"
                 className={changeClassName}
                 checked={isChecked}
                 onChange={handleAddTask}
               >
                 {showSVG}
-              </ToggleButton>
+              </StyledToggleButton>
             </ButtonGroup>
           </Col>
           <Col xs={10}>
-            <Form.Control
-              className="form-input"
+            <StyledFormInput
+              $isDarkModeOn={isDarkModeOn}
               placeholder={placeholderValue}
               value={newTask}
               onChange={handleOnChange}
             />
           </Col>
         </Row>
-      </Jumbotron>
+      </Wrapper>
     </Row>
   );
 };
